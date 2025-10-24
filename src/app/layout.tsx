@@ -1,5 +1,5 @@
 import "./globals.css";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt} from "react-icons/fa";
 
 export default function RootLayout({
   children,
@@ -34,6 +34,12 @@ export default function RootLayout({
             className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
           >
             <FaEnvelope />
+          </a>
+          <a
+            href="mailto:ton.email@example.com"
+            className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
+          >
+            <FaFileAlt />
           </a>
         </div>
       </body>

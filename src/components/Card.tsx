@@ -11,7 +11,7 @@ export default function Card({ children, className }: CardProps) {
     <div
       className={clsx(
         // Base structural + visual styles (no background)
-        "shadow-xl rounded-2xl px-8 py-8 flex flex-col items-center max-w-2xl border border-gray-200 dark:border-gray-800 backdrop-blur-md transition",
+        "relative shadow-xl rounded-2xl px-8 py-8 flex flex-col items-center max-w-2xl border border-gray-200 dark:border-gray-800 backdrop-blur-md transition",
         className
       )}
     >

@@ -6,7 +6,8 @@ import CpeLogo from "@/assets/CPE-logo.png";
 import SiemensLogo from "@/assets/siemens-logo.png";
 import Card from "@/components/Card"; // keep your card
 import projects from "./projects";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from "react-icons/fa";
+import Footer from "@/components/Footer";
 
 export default function Portfolio() {
   // manage which project dialog is open
@@ -22,7 +23,7 @@ export default function Portfolio() {
               Sami Askri
             </h1>
             <p className="mt-2 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
-              I’m a Computer Science Engineering student currently completing my apprenticeship as a Full-Stack Web and Software Developer at Siemens Industry Software. In my role, I focus on developing software solutions and web applications, building reliable and efficient systems that support real-world use cases, mainly focusing on Model Based System Engineering.
+              I’m a Computer Science Engineering student at CPE Lyon, completing a work-study program as a Software Engineer and Full-Stack Developer at Siemens Industry Software. I develop reliable and efficient web and software solutions that support real-world industrial use cases, with a focus on Model-Based Systems Engineering (MBSE).
             </p>
           </div>
         </Card>
@@ -43,13 +44,25 @@ export default function Portfolio() {
 
       {/* Main */}
       <main className="flex flex-col gap-[32px] items-center w-full px-8">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full mt-8 max-w-6xl">
+        {/*Projects grid*/}
+        <div className="text-3xl sm:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-green-600 drop-shadow-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
+          Professional experiences
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl">
           {projects.map((project: any, index: number) => (
             <div onClick={() => setOpenProject(project)}>
               <Card
                 key={index}
                 className="cursor-pointer bg-white/80 dark:bg-gray-900/80 hover:bg-gray-50 dark:hover:bg-blue-800 rounded-2xl shadow-lg hover:shadow-2xl transition flex flex-col p-0"
               >
+                <div className="absolute top-3 left-3 w-10 h-10">
+                <Image
+                  alt="company logo"
+                  src={project.company}
+                  fill
+                  className="object-contain"
+                />
+              </div>
                 <Image
                   alt={project.title}
                   src={project.image}
@@ -77,65 +90,27 @@ export default function Portfolio() {
                 {openProject.description ||
                   "No description available yet. You can add one later."}
               </p>
-
-              {openProject.screenshots && (
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {openProject.screenshots.map((src: string, i: number) => (
-                    <Image
-                      key={i}
-                      src={src}
-                      alt={`Screenshot ${i + 1}`}
-                      width={300}
-                      height={200}
-                      className="rounded-lg object-cover"
-                    />
-                  ))}
-                </div>
-              )}
-
               <div className="flex justify-end">
                 <button
                   onClick={() => setOpenProject(null)}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition"
+                  className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
                 >
                   Close
                 </button>
+                {openProject.link ? (
+                  <button
+                    onClick={() => window.open(openProject.link, "_blank", "noopener,noreferrer")}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition ml-3"
+                  >
+                    Visit Github
+                  </button>
+                ) : null}
               </div>
             </div>
           </div>
         )}
       </main>
-
-      {/* Footer */}
-      <footer className="mt-12 flex flex-col items-center gap-4">
-        <p className="text-gray-600 dark:text-gray-400 text-sm">
-          © {new Date().getFullYear()} Sami Askri – All rights reserved
-        </p>
-        <div className="flex space-x-6 text-2xl text-gray-600 dark:text-gray-300">
-          <a
-            href="https://github.com/ton-github"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://linkedin.com/in/ton-linkedin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            href="mailto:ton.email@example.com"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
-          >
-            <FaEnvelope />
-          </a>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }

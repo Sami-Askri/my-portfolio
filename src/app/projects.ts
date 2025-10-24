@@ -1,21 +1,40 @@
 import { StaticImageData } from "next/image";
-import screen1 from "@/assets/app-logo.png";
+import app_logo from "@/assets/app-logo.png";
+import sysml2 from "@/assets/SysML2-logo.png";
+import CPE from "@/assets/CPE-logo.png";
+import SiemensLogo from "@/assets/siemens-logo.png";
 
 
 export type Project = {
   title: string;
   description: string;
-  image: StaticImageData;
+  image?: StaticImageData;
+  company?: StaticImageData;
   link?: string;
 };
 
 const projects: Project[] = [
   {
     title: "Sports and nutrition mobile app",
-    description: "During my second year of preparatory school at Les Chartreux-Lyon, I developed a mobile application using Flutter and Dart. The goal was to create a sports and nutrition guide app that provided users with workout routines and dietary recommendations. During this project, I also worked with Firebase databse to store and manage users, their data and be able to track users progression. I also worked on creating a script to automatically generate personalized nutrition plans based on user's data.",
-    image: screen1,
-    link: "https://github.com/yourname/inventory-system",
+    description: "Built a Flutter app that provides personalized workout routines and nutrition plans. Integrated Firebase for user management and progress tracking, and developed a script to auto-generate nutrition plans based on user data.",
+    image: app_logo,
+    company: CPE,
+    link: "https://github.com/Sami-Askri/MyApp",
+
   },
+
+  {
+    title: "MBSE Software development",
+    description: "Contributed to Model-Based Systems Engineering (MBSE) software development, enhancing system modeling capabilities and improving integration with existing engineering tools.",
+    image: sysml2,
+    company: SiemensLogo,
+  },
+
+  {
+    title: "Placeholder for future project",
+    description: "Description coming soon.",
+    company: CPE,
+  }
 
 ];
 
