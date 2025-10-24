@@ -8,6 +8,7 @@ import Card from "@/components/Card"; // keep your card
 import projects from "./projects";
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from "react-icons/fa";
 import Footer from "@/components/Footer";
+import TechStack from "@/components/TechStack";
 
 export default function Portfolio() {
   const [openProject, setOpenProject] = useState<any | null>(null);
@@ -18,7 +19,7 @@ export default function Portfolio() {
       <header className="w-full flex items-center justify-between mt-12 py-8 px-6 sm:px-12">
         <Card className="bg-white/80 dark:bg-gray-900/80 hover:bg-gray-100 dark:hover:bg-gray-800 flex-row items-center gap-6 p-6">
           <div>
-            <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mb-2 drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-green-600 drop-shadow-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
               Sami Askri
             </h1>
             <p className="mt-2 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
@@ -109,6 +110,9 @@ export default function Portfolio() {
           </div>
         )}
       </main>
+      <div>
+        <TechStack/>
+      </div>
       <Footer/>
     </div>
   );
