@@ -10,7 +10,6 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from "react-icons/fa";
 import Footer from "@/components/Footer";
 
 export default function Portfolio() {
-  // manage which project dialog is open
   const [openProject, setOpenProject] = useState<any | null>(null);
 
   return (
