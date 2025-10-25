@@ -36,10 +36,12 @@ export default function RootLayout({
             <FaEnvelope />
           </a>
           <a
-            href="mailto:ton.email@example.com"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
           >
-            <FaFileAlt />
+          <FaFileAlt />
           </a>
         </div>
       </body>
