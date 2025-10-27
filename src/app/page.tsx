@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import CpeLogo from "@/assets/CPE-logo.png";
 import SiemensLogo from "@/assets/siemens-logo.png";
-import Card from "@/components/Card"; // keep your card
+import Card from "@/components/Card";
 import projects from "./projects";
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from "react-icons/fa";
 import Footer from "@/components/Footer";
@@ -19,9 +19,11 @@ export default function Portfolio() {
       <header className="w-full flex items-center justify-between mt-12 py-8 px-6 sm:px-12">
         <Card className="bg-gray-500/80 dark:bg-gray-900/80 hover:bg-gray-100 dark:hover:bg-gray-800 flex-row items-center gap-6 p-6">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-green-600 drop-shadow-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
+            {/* main title */}
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white drop-shadow-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
               Sami Askri
             </h1>
+
             <p className="mt-2 text-lg text-black-600 dark:text-gray-300 max-w-xl leading-relaxed">
               I’m a Computer Science Engineering student at CPE Lyon, completing a work-study program as a Software Engineer and Full-Stack Developer at Siemens Industry Software. I develop reliable and efficient web and software solutions that support real-world industrial use cases, with a focus on Model-Based Systems Engineering (MBSE).
             </p>
@@ -44,46 +46,36 @@ export default function Portfolio() {
 
       {/* Main */}
       <main className="flex flex-col gap-[32px] items-center w-full px-8">
-        {/*Projects grid*/}
-        <div className="text-3xl sm:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-green-600 drop-shadow-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
+        {/* Section title */}
+        <div className="text-3xl sm:text-4xl font-bold tracking-tight text-white drop-shadow-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
           Professional experiences
         </div>
-        <div className="grid gap-6 w-full max-w-6xl justify-center [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
 
+        {/* Projects grid */}
+        <div className="grid gap-6 w-full max-w-6xl justify-center [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
           {projects.map((project: any, index: number) => (
-            <div onClick={() => setOpenProject(project)}>
-              <Card
-                key={index}
-                className="cursor-pointer bg-gray-300/80 dark:bg-gray-900/80 hover:bg-gray-50 dark:hover:bg-blue-800 rounded-2xl shadow-lg hover:shadow-2xl transition flex flex-col p-0"
-              >
+            <div onClick={() => setOpenProject(project)} key={index}>
+              <Card className="cursor-pointer bg-gray-300/80 dark:bg-gray-900/80 hover:bg-gray-50 dark:hover:bg-blue-800 rounded-2xl shadow-lg hover:shadow-2xl transition flex flex-col p-0">
                 <div className="absolute top-3 left-3 w-10 h-10">
-                <Image
-                  alt="company logo"
-                  src={project.company}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-                <Image
-                  alt={project.title}
-                  src={project.image}
-                  className="w-full h-48 object-contain rounded-t-2xl scale-90"
-                />
+                  <Image alt="company logo" src={project.company} fill className="object-contain" />
+                </div>
+                <Image alt={project.title} src={project.image} className="w-full h-48 object-contain rounded-t-2xl scale-90" />
                 <div className="p-4 text-center">
-                  <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-300">
+                  {/* project title */}
+                  <h2 className="text-xl font-semibold text-white">
                     {project.title}
                   </h2>
                 </div>
               </Card>
             </div>
           ))}
-          </div>
+        </div>
 
-        {/* Simple custom dialog */}
+        {/* Project dialog */}
         {openProject && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-2xl w-full p-6 relative">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
                 {openProject.title}
               </h2>
 
@@ -100,7 +92,9 @@ export default function Portfolio() {
                 </button>
                 {openProject.link ? (
                   <button
-                    onClick={() => window.open(openProject.link, "_blank", "noopener,noreferrer")}
+                    onClick={() =>
+                      window.open(openProject.link, "_blank", "noopener,noreferrer")
+                    }
                     className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition ml-3"
                   >
                     Visit Github
@@ -111,10 +105,11 @@ export default function Portfolio() {
           </div>
         )}
       </main>
+
       <div>
-        <TechStack/>
+        <TechStack />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

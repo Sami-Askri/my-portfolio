@@ -141,7 +141,7 @@ export default function TechStack() {
 
   return (
     <section className="w-full max-w-6xl mx-auto mt-20 px-8">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-green-600">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-white bg-clip-text ">
         Technologies Stack
       </h2>
 
