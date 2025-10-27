@@ -6,11 +6,11 @@ export default function Footer() {
 
   return (
     <footer className="mt-12 flex flex-col items-center gap-4 relative">
-      <p className="text-gray-600 dark:text-gray-400 text-sm">
+      <p className="text-gray-300 dark:text-gray-300 text-sm">
         © {new Date().getFullYear()} Sami Askri – All rights reserved
       </p>
 
-      <div className="flex space-x-6 text-2xl text-gray-600 dark:text-gray-300 mb-5">
+      <div className="flex space-x-6 text-2xl text-gray-300 dark:text-gray-300 mb-5">
         <a
           href="https://github.com/Sami-Askri"
           target="_blank"

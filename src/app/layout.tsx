@@ -12,9 +12,9 @@ export default function RootLayout({
         <main>{children}</main>
 
         {/* Icônes de contact en bas à gauche */}
-        <div className="fixed bottom-5 left-5 flex space-x-4 text-2xl text-gray-600 dark:text-gray-300">
+        <div className="fixed bottom-5 left-5 flex space-x-4 text-2xl text-gray-300 dark:text-gray-300">
           <a
-            href="https://github.com/ton-github"
+            href="https://github.com/Sami-Askri"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
@@ -22,7 +22,7 @@ export default function RootLayout({
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/ton-linkedin"
+            href="https://linkedin.com/in/sami-askri-a90a5326b"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
@@ -30,7 +30,7 @@ export default function RootLayout({
             <FaLinkedin />
           </a>
           <a
-            href="mailto:ton.email@example.com"
+            href="mailto:sami.askri88@gmail.com"
             className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
           >
             <FaEnvelope />

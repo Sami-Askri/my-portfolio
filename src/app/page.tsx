@@ -14,15 +14,15 @@ export default function Portfolio() {
   const [openProject, setOpenProject] = useState<any | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-red-500 to-gray-100 dark:from-red-900 dark:to-gray-950">
+    <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-gray-900 to-gray-500 dark:from-gray-900 dark:to-gray-1000 text-gray-800 dark:text-gray-200 py-10">
       {/* Header */}
       <header className="w-full flex items-center justify-between mt-12 py-8 px-6 sm:px-12">
-        <Card className="bg-white/80 dark:bg-gray-900/80 hover:bg-gray-100 dark:hover:bg-gray-800 flex-row items-center gap-6 p-6">
+        <Card className="bg-gray-500/80 dark:bg-gray-900/80 hover:bg-gray-100 dark:hover:bg-gray-800 flex-row items-center gap-6 p-6">
           <div>
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-green-600 drop-shadow-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
               Sami Askri
             </h1>
-            <p className="mt-2 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
+            <p className="mt-2 text-lg text-black-600 dark:text-gray-300 max-w-xl leading-relaxed">
               I’m a Computer Science Engineering student at CPE Lyon, completing a work-study program as a Software Engineer and Full-Stack Developer at Siemens Industry Software. I develop reliable and efficient web and software solutions that support real-world industrial use cases, with a focus on Model-Based Systems Engineering (MBSE).
             </p>
           </div>
@@ -48,12 +48,13 @@ export default function Portfolio() {
         <div className="text-3xl sm:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-green-600 drop-shadow-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
           Professional experiences
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl">
+        <div className="grid gap-6 w-full max-w-6xl justify-center [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
+
           {projects.map((project: any, index: number) => (
             <div onClick={() => setOpenProject(project)}>
               <Card
                 key={index}
-                className="cursor-pointer bg-white/80 dark:bg-gray-900/80 hover:bg-gray-50 dark:hover:bg-blue-800 rounded-2xl shadow-lg hover:shadow-2xl transition flex flex-col p-0"
+                className="cursor-pointer bg-gray-300/80 dark:bg-gray-900/80 hover:bg-gray-50 dark:hover:bg-blue-800 rounded-2xl shadow-lg hover:shadow-2xl transition flex flex-col p-0"
               >
                 <div className="absolute top-3 left-3 w-10 h-10">
                 <Image

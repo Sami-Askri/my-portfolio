@@ -3,6 +3,7 @@ import app_logo from "@/assets/app-logo.png";
 import sysml2 from "@/assets/SysML2-logo.png";
 import CPE from "@/assets/CPE-logo.png";
 import SiemensLogo from "@/assets/siemens-logo.png";
+import MBot from "@/assets/mbot.webp";
 
 
 export type Project = {
@@ -31,11 +32,14 @@ const projects: Project[] = [
   },
 
   {
-    title: "Placeholder for future project",
-    description: "Description coming soon.",
+    title: "Rescue robot prototype assembly and programming",
+    description: "Assembled and programmed an MBot ranger robot as a first protoype of an autonomous rescue robot.",
     company: CPE,
+    image: MBot,
+    link: "https://github.com/Sami-Askri/Autonomous-Robot",
   }
 
+  
 ];
 
 export default projects;

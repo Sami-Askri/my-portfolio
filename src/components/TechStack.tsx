@@ -32,14 +32,16 @@ import {
 import sysml2 from "@/assets/SysML2-logo.png";
 
 const brandColors: Record<string, string> = {
-  React: "#61DAFB",
+  React: "#61dafbc9",
+  Php: "#777BB4",
+  Dart: "#0175C2",
   "Node.js": "#68A063",
   TailwindCSS: "#38BDF8",
   Flutter: "#02569B",
   Qt: "#41CD52",
   Python: "#3776AB",
   Java: "#E76F00",
-  TypeScript: "#3178C6",
+  TypeScript: "#3179c6a6",
   Docker: "#2496ED",
   AWS: "#FF9900",
   Kubernetes: "#326CE5",
@@ -76,7 +78,8 @@ export default function TechStack() {
         { name: "Java", icon: <FaJava /> },
         { name: "TypeScript", icon: <SiTypescript /> },
         { name: "Dart", icon: <SiDart /> },
-        { name: "PHP", icon: <FaPhp /> },
+        { name: "Php", icon: <FaPhp /> },
+        { name: "SQL", icon: <FaDatabase /> },
       ],
     },
     {
@@ -106,7 +109,6 @@ export default function TechStack() {
       techs: [
         { name: "Firebase", icon: <SiFirebase /> },
         { name: "PostgreSQL", icon: <SiPostgresql /> },
-        { name: "SQL", icon: <FaDatabase /> },
       ],
     },
     {
@@ -147,7 +149,7 @@ export default function TechStack() {
         {categories.map((cat, index) => (
           <div
             key={index}
-            className="bg-white/80 dark:bg-gray-900/80 rounded-2xl p-6 shadow-lg"
+            className="bg-gray-300/80 dark:bg-gray-900/80 rounded-2xl p-6 shadow-lg"
           >
             <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-300">
               {cat.title}
@@ -158,7 +160,7 @@ export default function TechStack() {
                   key={i}
                   className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-200 hover:scale-105 transition"
                   style={{
-                    backgroundColor: brandColors[tech.name] || "rgba(255,255,255,0.05)",
+                    backgroundColor: brandColors[tech.name] || "rgba(10, 9, 9, 0.51)",
                   }}
                 >
                   <span className="text-2xl flex items-center justify-center"
