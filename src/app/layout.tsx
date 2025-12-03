@@ -1,5 +1,6 @@
 import "./globals.css";
-import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import CvDropdown from "@/components/CvDropdown";
 
 export default function RootLayout({
   children,
@@ -11,7 +12,7 @@ export default function RootLayout({
       <body>
         <main>{children}</main>
 
-        {/* Icônes de contact en bas à gauche */}
+        {/* Contact icons bottom-left */}
         <div className="fixed bottom-5 left-5 flex space-x-4 text-2xl text-gray-300 dark:text-gray-300">
           <a
             href="https://github.com/Sami-Askri"
@@ -35,14 +36,9 @@ export default function RootLayout({
           >
             <FaEnvelope />
           </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
-          >
-          <FaFileAlt />
-          </a>
+
+          {/* CV dropdown */}
+          <CvDropdown />
         </div>
       </body>
     </html>

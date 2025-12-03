@@ -52,16 +52,23 @@ export default function Portfolio() {
         </div>
 
         {/* Projects grid */}
-        <div className="grid gap-6 w-full max-w-6xl justify-center [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
+        <div className="grid gap-6 w-full max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project: any, index: number) => (
-            <div onClick={() => setOpenProject(project)} key={index}>
+            <div
+              onClick={() => setOpenProject(project)}
+              key={index}
+              className="h-full lg:last:col-start-2"
+            >
               <Card className="cursor-pointer bg-gray-300/80 dark:bg-gray-900/80 hover:bg-gray-50 dark:hover:bg-blue-800 rounded-2xl shadow-lg hover:shadow-2xl transition flex flex-col p-0">
                 <div className="absolute top-3 left-3 w-10 h-10">
                   <Image alt="company logo" src={project.company} fill className="object-contain" />
                 </div>
-                <Image alt={project.title} src={project.image} className="w-full h-48 object-contain rounded-t-2xl scale-90" />
+                <Image
+                  alt={project.title}
+                  src={project.image}
+                  className="w-full h-48 object-contain rounded-t-2xl scale-90"
+                />
                 <div className="p-4 text-center">
-                  {/* project title */}
                   <h2 className="text-xl font-semibold text-white">
                     {project.title}
                   </h2>
@@ -71,6 +78,7 @@ export default function Portfolio() {
           ))}
         </div>
 
+
         {/* Project dialog */}
         {openProject && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
@@ -78,10 +86,14 @@ export default function Portfolio() {
               <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
                 {openProject.title}
               </h2>
-
               <p className="text-gray-700 dark:text-gray-300 mb-6">
                 {openProject.description ||
                   "No description available yet. You can add one later."}
+              </p>
+              <b>Techs used</b>
+              <p className="text-gray-700 dark:text-gray-300 mb-6">
+                {openProject.technologies ||
+                  "No techs available yet."}
               </p>
               <div className="flex justify-end">
                 <button

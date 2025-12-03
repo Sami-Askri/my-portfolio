@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from "react-icons/fa";
+import React from "react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import CvDropdown from "@/components/CvDropdown";
 
 export default function Footer() {
-  const [showPdf, setShowPdf] = useState(false);
-
   return (
     <footer className="mt-12 flex flex-col items-center gap-4 relative">
       <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -27,24 +26,16 @@ export default function Footer() {
         >
           <FaLinkedin />
         </a>
-
         <a
           href="mailto:sami.askri88@gmail.com"
           className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
         >
           <FaEnvelope />
         </a>
-        {/* File icon opens PDF in new tab */}
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
-        >
-          <FaFileAlt />
-        </a>
-      </div>
 
+        {/* CV dropdown */}
+        <CvDropdown />
+      </div>
     </footer>
   );
 }
