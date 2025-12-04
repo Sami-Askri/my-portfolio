@@ -1,6 +1,7 @@
 import "./globals.css";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import CvDropdown from "@/components/CvDropdown";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({
   children,
@@ -40,6 +41,7 @@ export default function RootLayout({
           {/* CV dropdown */}
           <CvDropdown />
         </div>
+        <Analytics />
       </body>
     </html>
   );
