@@ -1,14 +1,15 @@
+'use client'
+
 import "./globals.css";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import CvDropdown from "@/components/CvDropdown";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
+import { useEffect, useRef } from "react";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // No icon overlap logic; icons will be handled in the bio card for mobile
+  const iconsRef = useRef<HTMLDivElement>(null);
   return (
     <html lang="en">
       <body>
@@ -31,7 +32,12 @@ export default function RootLayout({
         <main>{children}</main>
 
         {/* Contact icons bottom-left */}
-        <div className="fixed bottom-5 left-5 flex space-x-4 text-2xl text-gray-300 dark:text-gray-300">
+        <div
+          ref={iconsRef}
+          className="hidden sm:flex fixed bottom-5 left-5 space-x-4 text-2xl text-gray-300 dark:text-gray-300 z-[60]"
+        >
+          {/* Mobile overlay to hide icons when a card is open or tapped */}
+          <div id="mobile-card-overlay" className="sm:hidden fixed inset-0 z-50 pointer-events-none" style={{ display: 'none' }}></div>
           <a
             href="https://github.com/Sami-Askri"
             target="_blank"

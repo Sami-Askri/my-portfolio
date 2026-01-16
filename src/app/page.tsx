@@ -8,6 +8,8 @@ import Card from "@/components/Card";
 import projects from "./projects";
 import Footer from "@/components/Footer";
 import TechStack from "@/components/TechStack";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import CvDropdown from "@/components/CvDropdown";
 
 export default function Portfolio() {
   const [openProject, setOpenProject] = useState<any | null>(null);
@@ -15,9 +17,22 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-gray-900 to-gray-500 dark:from-gray-900 dark:to-gray-1000 text-gray-800 dark:text-gray-200 py-10">
       {/* Header */}
-      <header className="w-full flex items-center justify-between mt-12 py-8 px-6 sm:px-12">
-        <Card className="bg-gray-500/80 dark:bg-gray-900/80 hover:bg-gray-100 dark:hover:bg-gray-800 flex-row items-center gap-6 p-6">
-          <div>
+      <header className="w-full flex flex-col sm:flex-row items-center justify-between mt-12 py-8 px-4 sm:px-12 gap-6">
+        {/* Logos section - on mobile, appears above bio; on desktop, to the right */}
+        <div className="flex flex-row items-center gap-2 sm:gap-4 relative order-1 sm:order-2 mb-4 sm:mb-0">
+          <div className="relative -top-2 sm:-top-4">
+            <Image src={CpeLogo} alt="CPE logo" width={100} height={100} className="sm:w-[200px] sm:h-[200px] w-[80px] h-[80px] object-contain" />
+          </div>
+          <div className="text-2xl sm:text-4xl font-bold text-black-400 dark:text-black-600 select-none">
+            ×
+          </div>
+          <div className="relative top-2 sm:top-4">
+            <Image src={SiemensLogo} alt="Siemens logo" width={100} height={100} className="sm:w-[200px] sm:h-[200px] w-[80px] h-[80px] object-contain" />
+          </div>
+        </div>
+
+        <Card className="bio-card bg-gray-500/80 dark:bg-gray-900/80 hover:bg-gray-100 dark:hover:bg-gray-800 flex flex-col sm:flex-row items-center gap-6 p-4 sm:p-6 w-full max-w-2xl mx-auto order-2 sm:order-1">
+          <div className="w-full">
             {/* main title */}
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white drop-shadow-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
               Sami Askri
@@ -26,21 +41,34 @@ export default function Portfolio() {
             <p className="mt-2 text-lg text-black-600 dark:text-gray-300 max-w-xl leading-relaxed">
               I’m a Computer Science Engineering student at CPE Lyon, completing a work-study program as a Software Engineer and Full-Stack Developer at Siemens Industry Software. I develop reliable and efficient web and software solutions that support real-world industrial use cases, with a focus on Model-Based Systems Engineering (MBSE).
             </p>
+            {/* Contact icons: show only on mobile inside bio card */}
+            <div className="flex sm:hidden justify-center mt-4 space-x-4 text-2xl text-gray-300 dark:text-gray-300">
+              <a
+                href="https://github.com/Sami-Askri"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://linkedin.com/in/sami-askri-a90a5326b"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="mailto:sami.askri88@gmail.com"
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
+              >
+                <FaEnvelope />
+              </a>
+              <CvDropdown />
+            </div>
           </div>
         </Card>
-
-        {/* Logos section */}
-        <div className="flex items-center gap-4 relative">
-          <div className="relative -top-4">
-            <Image src={CpeLogo} alt="CPE logo" width={200} height={200} />
-          </div>
-          <div className="text-4xl font-bold text-black-400 dark:text-black-600 select-none">
-            ×
-          </div>
-          <div className="relative top-4">
-            <Image src={SiemensLogo} alt="Siemens logo" width={200} height={200} />
-          </div>
-        </div>
       </header>
 
       {/* Main */}
@@ -56,7 +84,7 @@ export default function Portfolio() {
             <div
               onClick={() => setOpenProject(project)}
               key={index}
-              className="h-full lg:last:col-start-2"
+              className="project-card h-full lg:last:col-start-2"
             >
               <Card className="cursor-pointer bg-gray-300/80 dark:bg-gray-900/80 hover:bg-gray-50 dark:hover:bg-blue-800 rounded-2xl shadow-lg hover:shadow-2xl transition flex flex-col p-0">
                 <div className="absolute top-3 left-3 w-10 h-10">
@@ -80,40 +108,52 @@ export default function Portfolio() {
 
         {/* Project dialog */}
         {openProject && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-2xl w-full p-6 relative">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-                {openProject.title}
-              </h2>
-              <p className="text-gray-700 dark:text-gray-300 mb-6">
-                {openProject.description ||
-                  "No description available yet. You can add one later."}
-              </p>
-              <b>Techs used</b>
-              <p className="text-gray-700 dark:text-gray-300 mb-6">
-                {openProject.technologies ||
-                  "No techs available yet."}
-              </p>
-              <div className="flex justify-end">
-                <button
-                  onClick={() => setOpenProject(null)}
-                  className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
-                >
-                  Close
-                </button>
-                {openProject.link ? (
+          <>
+            {/* Show overlay to hide icons on mobile when card is open */}
+            <script dangerouslySetInnerHTML={{ __html: `if(window.innerWidth<640){document.getElementById('mobile-card-overlay').style.display='block';}` }} />
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-2xl w-full p-6 relative">
+                <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                  {openProject.title}
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300 mb-6">
+                  {openProject.description ||
+                    "No description available yet. You can add one later."}
+                </p>
+                <b>Techs used</b>
+                <p className="text-gray-700 dark:text-gray-300 mb-6">
+                  {openProject.technologies ||
+                    "No techs available yet."}
+                </p>
+                <div className="flex justify-end">
                   <button
-                    onClick={() =>
-                      window.open(openProject.link, "_blank", "noopener,noreferrer")
-                    }
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition ml-3"
+                    onClick={() => {
+                      setOpenProject(null);
+                      if (window.innerWidth < 640) {
+                        const overlay = document.getElementById('mobile-card-overlay');
+                        if (overlay) {
+                          overlay.style.display = 'none';
+                        }
+                      }
+                    }}
+                    className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
                   >
-                    Visit Github
+                    Close
                   </button>
-                ) : null}
+                  {openProject.link ? (
+                    <button
+                      onClick={() =>
+                        window.open(openProject.link, "_blank", "noopener,noreferrer")
+                      }
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition ml-3"
+                    >
+                      Visit Github
+                    </button>
+                  ) : null}
+                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </main>
 

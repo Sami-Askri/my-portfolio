@@ -141,7 +141,7 @@ export default function TechStack() {
 
   return (
     <section className="w-full max-w-6xl mx-auto mt-20 px-8">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-white bg-clip-text ">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-whitepm bg-clip-text ">
         Technologies Stack
       </h2>
 
@@ -149,7 +149,7 @@ export default function TechStack() {
         {categories.map((cat, index) => (
           <div
             key={index}
-            className="bg-gray-300/80 dark:bg-gray-900/80 rounded-2xl p-6 shadow-lg"
+            className="techstack-card bg-gray-300/80 dark:bg-gray-900/80 rounded-2xl p-6 shadow-lg"
           >
             <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-300">
               {cat.title}
@@ -164,10 +164,10 @@ export default function TechStack() {
                   }}
                 >
                   <span className="text-2xl flex items-center justify-center"
-                    style={{color: textColors[tech.name]}}>
+                    style={{ color: textColors[tech.name] }}>
                     {tech.icon}
                   </span>
-                  <span style={{color: textColors[tech.name]}}>{tech.name}</span>
+                  <span style={{ color: textColors[tech.name] }}>{tech.name}</span>
                 </div>
                 // <div
                 //   key={i}
