@@ -10,6 +10,8 @@ import {
   FaJava,
   FaJenkins,
   FaPhp,
+  FaGoogle,
+  FaGoogleDrive,
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -27,6 +29,7 @@ import {
   SiQt,
   SiJira,
   SiSiemens,
+  SiKeycloak,
 } from "react-icons/si";
 
 import sysml2 from "@/assets/SysML2-logo.png";
@@ -93,14 +96,16 @@ export default function TechStack() {
       ],
     },
     {
-      title: "DevOps & Infrastructure",
+      title: "DevSecOps & Infrastructure",
       techs: [
         { name: "GitLab CI/CD", icon: <FaGitAlt /> },
         { name: "Docker", icon: <FaDocker /> },
-        { name: "AWS", icon: <FaAws /> },
+        { name: "Keycloak", icon: <SiKeycloak /> },
         { name: "Terraform", icon: <SiTerraform /> },
         { name: "Kubernetes", icon: <SiKubernetes /> },
         { name: "Ansible", icon: <SiAnsible /> },
+        { name: "AWS", icon: <FaAws /> },
+        { name: "Google Cloud", icon: <FaGoogle /> },
         { name: "Jenkins", icon: <FaJenkins /> },
       ],
     },

@@ -40,6 +40,12 @@ export default function Portfolio() {
 
             <p className="mt-2 text-lg text-black-600 dark:text-gray-300 max-w-xl leading-relaxed">
               I’m a Computer Science Engineering student at CPE Lyon, completing a work-study program as a Software Engineer and Full-Stack Developer at Siemens Industry Software. I develop reliable and efficient web and software solutions that support real-world industrial use cases, with a focus on Model-Based Systems Engineering (MBSE).
+              <br></br>
+              <br></br>
+              I’m currently seeking an internship in software engineering or DevOps, with a minimum duration of 9 weeks during the summer of 2026, and open to a longer internship of up to 3 months.
+              <br></br>
+              <br></br>
+              Feel free to reach out if you’d like to discuss internship opportunities or potential collaborations.
             </p>
             {/* Contact icons: show only on mobile inside bio card */}
             <div className="flex sm:hidden justify-center mt-4 space-x-4 text-2xl text-gray-300 dark:text-gray-300">
@@ -79,13 +85,14 @@ export default function Portfolio() {
         </div>
 
         {/* Projects grid */}
-        <div className="grid gap-6 w-full max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl">
           {projects.map((project: any, index: number) => (
             <div
               onClick={() => setOpenProject(project)}
               key={index}
-              className="project-card h-full lg:last:col-start-2"
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
             >
+
               <Card className="cursor-pointer bg-gray-300/80 dark:bg-gray-900/80 hover:bg-gray-50 dark:hover:bg-blue-800 rounded-2xl shadow-lg hover:shadow-2xl transition flex flex-col p-0">
                 <div className="absolute top-3 left-3 w-10 h-10">
                   <Image alt="company logo" src={project.company} fill className="object-contain" />

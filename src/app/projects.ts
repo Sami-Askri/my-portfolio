@@ -5,6 +5,7 @@ import CPE from "@/assets/CPE-logo.png";
 import SiemensLogo from "@/assets/siemens-logo.png";
 import MBot from "@/assets/mbot.webp.png";
 import sm from "@/assets/sm.png";
+import devsecops from "@/assets/devsecops.svg";
 
 
 export type Project = {
@@ -17,14 +18,13 @@ export type Project = {
 };
 
 const projects: Project[] = [
-  {
-    title: "Sports and nutrition mobile app",
-    description: "Built a Flutter app that provides personalized workout routines and nutrition plans. Integrated Firebase for user management and progress tracking, and developed a script to auto-generate nutrition plans based on user data.",
-    technologies: "Flutter, Firebase, Dart, Python",
-    image: app_logo,
-    company: CPE,
-    link: "https://github.com/Sami-Askri/MyApp",
 
+  {
+    title: "DevSecOps – Cloud & Infrastructure",
+    description: "Served as a DevOps engineer on a full-stack web application for firefighter operations management. My responsibilities included designing CI/CD pipelines with GitLab CI, Docker-based containerization, and deployment on a private Google Cloud environment. I implemented security best practices, managed infrastructure configuration, environment isolation, secrets handling, and set up centralized authentication and authorization with Keycloak. I also actively contributed to the development of several application features.",
+    technologies: "Docker, Gitlab CI/CD, Keycloak, Google Cloud, React, Python, C++, Kotlin, PostgresSQL",
+    image: devsecops,
+    company: CPE,
   },
 
   {
@@ -33,6 +33,16 @@ const projects: Project[] = [
     technologies: "C++, Python, SysML v2, Qt, React",
     image: sysml2,
     company: SiemensLogo,
+  },
+
+  {
+    title: "Sports and nutrition mobile app",
+    description: "Built a Flutter app that provides personalized workout routines and nutrition plans. Integrated Firebase for user management and progress tracking, and developed a script to auto-generate nutrition plans based on user data.",
+    technologies: "Flutter, Firebase, Dart, Python",
+    image: app_logo,
+    company: CPE,
+    link: "https://github.com/Sami-Askri/MyApp",
+
   },
 
   {
