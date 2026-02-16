@@ -42,7 +42,7 @@ export default function Portfolio() {
               I’m a Computer Science Engineering student at CPE Lyon, completing a work-study program as a Software Engineer and Full-Stack Developer at Siemens Industry Software. I develop reliable and efficient web and software solutions that support real-world industrial use cases, with a focus on Model-Based Systems Engineering (MBSE).
               <br></br>
               <br></br>
-              I’m currently seeking an internship in software engineering or DevOps, with a minimum duration of 9 weeks during the summer of 2026, and open to a longer internship of up to 3 months.
+              I’m currently seeking an internship in software engineering, DevOps or AI, with a minimum duration of 9 weeks during the summer of 2026, and open to a longer internship of up to 3 months.
               <br></br>
               <br></br>
               Feel free to reach out if you’d like to discuss internship opportunities or potential collaborations.
